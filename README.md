@@ -1,1 +1,3 @@
 # GiveMeContextInfo
+
+Source files for the article on [Marcofolio.net](http://www.marcofolio.net/) called "*Context information using OCR, Entity Linking and Xamarin*" . This demo uses the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to do OCR and [Entity Linking](https://www.microsoft.com/cognitive-services/en-us/entity-linking-intelligence-service) to get more context information. Read the article to get more information about how this works.

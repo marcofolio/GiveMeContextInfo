@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:GiveMeContextInfo" x:Class="GiveMeContextInfo.GiveMeContextInfoPage"
+		Title="Give Me Context">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" Margin="20">
+
+			<Button Command="{Binding TakePictureCommand}" Text="Give me more context" />
+			
+			<Label Text="{Binding Description}" />
+
+			<ListView ItemsSource="{Binding ContextInfo}"
+					SelectedItem="{Binding SelectedContextInfo}"
+					IsVisible="{Binding HasResults}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding Name}" Detail="{Binding ScoreText}"  />
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
