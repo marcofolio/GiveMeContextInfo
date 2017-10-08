@@ -8,13 +8,11 @@ namespace GiveMeContextInfo
 {
     public static class EntityLinkingService
     {
-        // Get your key at: https://www.microsoft.com/cognitive-services/en-us/entity-linking-intelligence-service
-        private const string ENTITY_LINKING_API_KEY = "YOUR_API_KEY";
+        private static EntityLinkingServiceClient _visionServiceClient = new EntityLinkingServiceClient(Constants.ENTITY_LINKING_API_KEY);
 
         public static async Task<List<EntityLink>> LinkEntityAsync (string text)
         {
-            var client = new EntityLinkingServiceClient (ENTITY_LINKING_API_KEY);
-            var linkResponse = await client.LinkAsync (text);
+            var linkResponse = await _visionServiceClient.LinkAsync (text);
 
             var result = new List<EntityLink> ();
             foreach (var link in linkResponse)
@@ -27,6 +25,6 @@ namespace GiveMeContextInfo
                 });
             }
             return result;
-        }
+}
     }
 }

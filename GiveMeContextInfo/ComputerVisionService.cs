@@ -10,16 +10,14 @@ namespace GiveMeContextInfo
 {
     public static class ComputerVisionService
     {
-        // Get your key at: https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
-        private const string COMPUTER_VISION_API_KEY = "YOUR_API_KEY";
-
         public static async Task<string> RecognizeTextAsync (MediaFile photo)
         {
+            VisionServiceClient _visionServiceClient = new VisionServiceClient(Constants.COMPUTER_VISION_KEY, Constants.COMPUTER_VISION_ROOT);
+
             OcrResults ocrResults;
-            var client = new VisionServiceClient (COMPUTER_VISION_API_KEY);
             using (var photoStream = photo.GetStream ())
             {
-                ocrResults = await client.RecognizeTextAsync (photoStream);
+                ocrResults = await _visionServiceClient.RecognizeTextAsync (photoStream);
             }
 
             var text = "";

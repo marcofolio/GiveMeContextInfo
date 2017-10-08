@@ -75,7 +75,8 @@ namespace GiveMeContextInfo
                 if (_selectedContextInfo == null)
                     return;
 
-                Device.OpenUri (new Uri ($"https://en.wikipedia.org/wiki/{_selectedContextInfo.WikipediaID}"));
+                var url = _selectedContextInfo.WikipediaID.Replace(" ", "%20"); // Simple URL encode
+                Device.OpenUri (new Uri ($"https://en.wikipedia.org/wiki/{url}"));
                 SelectedContextInfo = null;
             }
         }
